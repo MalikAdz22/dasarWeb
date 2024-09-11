@@ -1,0 +1,100 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: hsl(358, 90%, 40%);
+}
+
+.container-satu {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #0a8437;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar Kiri */
+.sidebar-satu {
+    width: 20%;
+    padding: 10px;
+    background-color: #e6e6e6; /* Warna latar belakang sidebar kiri */
+}
+
+.sidebar-satu h3 {
+    font-size: 18px;
+    color: #333;
+}
+
+.sidebar-satu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-satu ul li {
+    margin: 10px 0;
+}
+
+.sidebar-satu ul li a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.sidebar-satu ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Kolom Utama */
+.kolom-utama {
+    width: 55%;
+    padding: 10px;
+}
+
+.kolom-utama h2 {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+}
+
+.kolom-utama p {
+    margin: 15px 0;
+    line-height: 1.6;
+}
+
+/* Gambar */
+.gambar {
+    display: block;
+    max-width: 50%;
+    height: 50%;
+    margin: 20px auto;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar Kanan */
+.sidebar-dua {
+    width: 20%;
+    padding: 10px;
+    background-color: #e6e6e6; /* Warna latar belakang sidebar kanan */
+}
+
+.sidebar-dua h3 {
+    font-size: 18px;
+    color: #333;
+}
+
+.sidebar-dua p {
+    margin: 15px 0;
+    line-height: 1.6;
+}
+
+/* Gaya Umum */
+h3, h2 {
+    font-family: 'Arial', sans-serif;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
