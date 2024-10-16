@@ -17,7 +17,7 @@
         }
 
         //jika ada kesalahan validasi
-        if (empty($errors)) {
+        if (!empty($errors)) {
             foreach ($errors as $error) {
                 echo $error . "<br>";
             }
@@ -26,5 +26,8 @@
             //misalnya menyimpan data ke database atau mengirim email
             echo "Data berhasil dikirim: Nama = $nama, Email = $email";
         }
+
+        echo "<pray>";
+        print_r($errors);
     }
 ?>
