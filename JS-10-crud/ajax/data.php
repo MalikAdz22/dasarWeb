@@ -90,25 +90,22 @@
 });
 
 
-$(document).on('click', '.hapus_data', function() {
-    var id = $(this).attr('id');
-    
-    $.ajax({
-        type: 'POST',
-        url: "hapus_data.php",
-        data: {id:id},
-        success: function(response) {
-            console.log(response); // Tambahkan log untuk melihat respons
-            if (response.success) {
+    $(document).on('click', '.hapus_data', function() {
+        // Mendapatkan ID data dari tombol yang diklik
+        var id = $(this).attr('id');
+        
+        // Mengirimkan permintaan AJAX untuk menghapus data
+        $.ajax({
+            type: 'POST',
+            url: "hapus_data.php",
+            data: {id:id},
+            success: function() {
                 // Memuat ulang data setelah berhasil dihapus
                 $('.data').load("data.php");
-            } else {
-                alert(response.error); // Tampilkan pesan kesalahan jika ada
+            },
+            error: function (response) {
+                console.log(response.responseText);
             }
-        },
-        error: function (response) {
-            console.log(response.responseText);
-        }
+        });
     });
-});
 </script>
