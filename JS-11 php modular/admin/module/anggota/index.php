@@ -119,7 +119,7 @@
                                         <option selected>Pilih Level</option>
                                         <option value="user">User</option>
                                         <option value="admin">Admin</option>
-                                        </select>
+                                    </select>
                                 </div>
                             </div>
                             <div class="modal-footer">
