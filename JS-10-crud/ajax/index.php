@@ -34,30 +34,29 @@
                         <label for="id">Nama</label>
                         <input type="hidden" name="id" id="id">
                         <input type="text" name="nama" id="nama" class="form-control" required="true">
-                        <p class="text-danger" id="err_nama"></p>
                     </div>
+                    <p class="text-danger" id="err_nama"></p>
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label for="jenis_kelamin">Jenis Kelamin</label><br>
                         <input type="radio" name="jenis_kelamin" id="jenkel1" value="L" required="true"> Laki-laki
                         <input type="radio" name="jenis_kelamin" id="jenkel2" value="P"> Perempuan
-                        <p class="text-danger" id="err_jenis_kelamin"></p>
                     </div>
-                    
+                    <p class="text-danger" id="err_jenis_kelamin"></p>
                 </div>
             </div>
         
             <div class="form-group">
                 <label for="alamat">Alamat</label>
                 <textarea name="alamat" id="alamat" class="form-control" required="true"></textarea>
-                <p class="text-danger" id="err_alamat"></p>
             </div>
+            <p class="text-danger" id="err_alamat"></p>
             <div class="form-group">
                 <label for="no_telp">No Telepon</label>
                 <input type="number" name="no_telp" id="no_telp" class="form-control" required="true">
-                <p class="text-danger" id="err_no_telp"></p>
             </div>
+            <p class="text-danger" id="err_no_telp"></p>
             <div class="form-group">
                 <button type="button" name="simpan" id="simpan" class="btn btn-primary">
                     <i class="fa fa-save"></i> Simpan
@@ -88,7 +87,7 @@
         // Mengirimkan token Keamanan
         $.ajaxSetup({
             headers: {
-                "Csrf-Token": $('meta[name="csrf-token"]').attr('content')
+                "csrf_token": $('meta[name="csrf-token"]').attr('content')
             }
         });
         $('.data').load("data.php");

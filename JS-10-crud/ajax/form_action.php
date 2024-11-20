@@ -13,6 +13,7 @@ if ($id == "") {
     $query = "INSERT INTO anggota (nama, jenis_kelamin, alamat, no_telp) VALUES (?, ?, ?, ?)";
     $sql = $db1->prepare($query);
     $sql->bind_param("ssss", $nama, $jenis_kelamin, $alamat, $no_telp);
+    
     $sql->execute();
 } else {
     $query = "UPDATE anggota SET nama=?, jenis_kelamin=?, alamat=?, no_telp=? WHERE id=?";

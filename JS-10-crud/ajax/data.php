@@ -61,34 +61,31 @@
     }
 
     $(document).on('click', '.edit_data', function() {
-    $('html, body').animate({ scrollTop: 0}, 'slow');
-    var id = $(this).attr('id'); // Mendapatkan ID dari tombol yang diklik
-    $.ajax({
-        type: 'POST',
-        url: "get_data.php", // Pastikan file ini berfungsi dengan baik
-        data: {id:id},
-        dataType: 'json',
-        success: function (response) {
-            reset(); // Reset pesan kesalahan
-            $('html, body').animate({ scrollTop: 30 }, 'slow');
-            document.getElementById("id").value = response.id; // Mengisi ID
-            document.getElementById("nama").value = response.nama; // Mengisi Nama
-            document.getElementById("alamat").value = response.alamat; // Mengisi Alamat
-            document.getElementById("no_telp").value = response.no_telp; // Mengisi No Telepon
-            
-            // Mengisi jenis kelamin
-            if (response.jenis_kelamin == "L") {
-                document.getElementById("jenkel1").checked = true; // Laki-laki
-            } else {
-                document.getElementById("jenkel2").checked = true; // Perempuan
+        $('html, body').animate({ scrollTop: 0}, 'slow');
+        var id = $(this).attr('id');
+        $.ajax({
+            type: 'POST',
+            url: "get_data.php",
+            data: {id:id},
+            dataType: 'json',
+            success: function (response) {
+                reset();
+                $('html, body').animate({ scrollTop: 30 }, 'slow');
+                document.getElementById("id").value = response.id;
+                document.getElementById("nama").value = response.nama;
+                document.getElementById("alamat").value = response.alamat;
+                document.getElementById("no_telp").value = response.no_telp;
+                if (response.jenis_kelamin=="L") {
+                    document.getElementById("jenkel1").checked = true;
+                } else {
+                    document.getElementById("jenkel2").checked = true;
+                }
+            },
+            error: function (response) {
+                console.log(response.responseText);
             }
-        },
-        error: function (response) {
-            console.log(response.responseText); // Log error jika ada
-        }
+        });
     });
-});
-
 
     $(document).on('click', '.hapus_data', function() {
         // Mendapatkan ID data dari tombol yang diklik
