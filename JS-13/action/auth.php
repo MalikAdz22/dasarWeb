@@ -1,17 +1,21 @@
-<?php
-include('../lib/Session.php');
-include('../lib/Connection.php');
+<?php 
+include("../lib/Session.php");
+include("../lib/Connection.php");
+
 $session = new Session();
-$act = isset($_GET['act']) ? strtolower($_GET['act']) : '';
-if ($act == 'login') {
+$act = isset($_GET['act'])? strtolower($_GET['act']):'';
+if($act== 'login'){
     $username = $_POST['username'];
     $password = $_POST['password'];
+
     // digunakan untuk query user
     $query = $db->prepare('select * from m_user where username = ?');
     $query->bind_param('s', $username);
     $query->execute();
-    // untuk ambil datanya
+
+    // untuk ambil data
     $data = $query->get_result()->fetch_assoc();
+
     // jika password sesuai
     if (password_verify($password, $data['password'])) {
         $session->set('is_login', true);
@@ -19,14 +23,16 @@ if ($act == 'login') {
         $session->set('name', $data['nama']);
         $session->set('level', $data['level']);
         $session->commit();
-        header('Location: ../index.php', false);
+
+        header('location: ../index.php', false);
     } else {
         $session->setFlash('status', false);
         $session->setFlash('message', 'Username dan password salah.');
         $session->commit();
         header('Location: ../login.php', false);
     }
-} else if ($act == 'logout') {
+} elseif ($act === 'logout') {
     $session->deleteAll();
     header('Location: ../login.php', false);
 }
+?>
